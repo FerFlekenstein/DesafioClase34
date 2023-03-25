@@ -60,7 +60,7 @@ app.use("/api/carrito", carritoApi);
 app.use("/", loginRouter)
 app.get("/ejs", async (req, res) => {
     const arrProd = await productos.getAll();
-    res.render("productos", { objetos: arrProd, user: req.session.user})
+    res.render("productos", { objetos: arrProd, user: req.session.user, env: config.app.environment})
 });
 //eventos socket
 io.on('connection', async (socket) => {
